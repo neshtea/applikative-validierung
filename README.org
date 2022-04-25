@@ -1,12 +1,12 @@
 #+TITLE: Validierung mit Applikativen Funktoren
 #+AUTHOR: Marco Schneider
 
-Dieses Repository enthält den begleitenden Quellcode für den Blogpost
+qDieses Repository enthält den begleitenden Quellcode für den Blogpost
 "Validierung mit applikativen Funktoren" auf
-[[https://funktionale-programmierung.de]].
+[[https://funktionale-programmierung.de][funktionale-programmierung.de]].
 
-Die tatsächliche Code ist unter [[./src-lib]] zu finden.  [[./src-exe]]
-enthält ausschließlich eine `main`-Funktion, die das Beispiel
+Die tatsächliche Code ist unter [[./src-lib/Validation/Main.hs][src-lib]] zu finden.  [[./src-exe/Main.hs][src-exe]] enthält
+ausschließlich ein Modul mit einer =main=-Funktion, die das Beispiel
 ausführt.
 
 * Bauen und ausführen
