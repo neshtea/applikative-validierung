@@ -1,0 +1,68 @@
+#+TITLE: Validierung mit Applikativen Funktoren
+#+AUTHOR: Marco Schneider
+
+Dieses Repository enthält den begleitenden Quellcode für den Blogpost
+"Validierung mit applikativen Funktoren" auf
+[[https://funktionale-programmierung.de]].
+
+Die tatsächliche Code ist unter [[./src-lib]] zu finden.  [[./src-exe]]
+enthält ausschließlich eine `main`-Funktion, die das Beispiel
+ausführt.
+
+* Bauen und ausführen
+Das Beispielprojekt kann mittels =nix= gebaut werden (siehe dazu die
+Notiz weiter unten).
+
+** =nix build=
+#+begin_src shell
+  $ nix build
+#+end_src
+
+Baut das Projekt.  Das Resultat kann über einen Symlink erreicht
+werden, der im selben Ordner unter `result` erreichbar ist.
+
+#+begin_src shell
+  $ nix build
+  $ ./result/bin/validation
+  Ok "ok"
+  Fail ["not a nonempty string"]
+  ...   # usw.
+#+end_src
+
+** =nix run=
+Via =nix= kann auch das Beispiel direkt ausgeführt werden.  Dazu
+einfach folgedes ausführen
+
+#+begin_src shell
+  $ nix run
+  Ok "ok"
+  Fail ["not a nonempty string"]
+  ...   # usw.
+#+end_src
+
+** =nix shell=
+Eine Entwicklungsumgebung die alle nötigen Pakete und ausführbaren
+Programme (=ghc=, =cabal=) in den benötigten Versionen enthält,
+bekommst man mit
+
+#+begin_src shell
+  $ nix shell
+  
+#+end_src
+* Notiz zu =nix=
+Das Beispiel kann mit [[https://nixos.org/][nix]] gebaut werden.  Dazu muss das [[https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-flake.html][nix
+flakes]]-Feature angeschaltet werden.  Falls =nix= installiert ist,
+`flakes` aber nicht Verfügbar sind, kann das mit folgendem
+Konfigurationseintrag in =~/.config/nix.conf= zugeschaltet werden:
+
+#+begin_src conf
+  experimental-features = nix-command flakes
+#+end_src
+
+Dazu ist eine einigermaßen neue Version von =nix= nötig.  Gebaut und
+getestet wurde mit Version =2.7.0=.
+
+#+begin_src shell
+  $ nix --version
+  nix (Nix) 2.7.0
+#+end_src
